@@ -1,6 +1,5 @@
 package Test;
 
-import java.util.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 

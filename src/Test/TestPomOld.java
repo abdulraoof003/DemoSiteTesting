@@ -23,16 +23,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import java.io.File;
-import java.io.IOException;
 
 
 
-
-public class TestPom {
+public class TestPomOld {
 
 	private WebDriver webDriver;
 	private RegPage RegPage;
@@ -43,14 +37,14 @@ public class TestPom {
 
 	private ExtentReports report;
     private ExtentTest test;
-    private String reportFilePath = "test.html";
+    private String reportFilePath = "user.dir";
 	
     @BeforeClass
     public static void init(){
 
     }
-   
     
+        
 	
 	@Before
 	public void before() {
@@ -62,9 +56,7 @@ public class TestPom {
         report.attachReporter(extentHtmlReporter);
         test = report.createTest("TestName");
 				
-        
-       
-        
+		
 		webDriver = new ChromeDriver();
 		RegPage = PageFactory.initElements(webDriver, RegPage.class);
 		
@@ -113,14 +105,76 @@ public class TestPom {
 	LoginPage.usernameInput("TestUser");
 	
 	LoginPage.passWordInput("TestPass");
-
-	try {
-		test.log(Status.INFO,"Info level"+test.addScreenCaptureFromPath(ScreenShot.take(webDriver, "gnsg")));
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-    test.fail("Failed  " );
+	
+	
+	
+//		webDriver.navigate().to("http://TheDemoSite.co.uk");
+//		
+//		webDriver.manage().window().maximize();
+//		
+//		webDriver.findElement(By.cssSelector("body small a:nth-child(6)")).click();
+//		
+//		TimeUnit.SECONDS.sleep(3);
+//
+//
+//		webDriver.findElement(By.cssSelector(" table  tbody  tr:nth-child(1)  td:nth-child(2)  p  input")).sendKeys("testuser");
+//
+//		TimeUnit.SECONDS.sleep(3);
+//		
+//		
+//
+//		
+//		
+//		webDriver.findElement(By.cssSelector(" table  tbody tr:nth-child(2) td:nth-child(2) p  input")).sendKeys("testpass");
+//
+//		TimeUnit.SECONDS.sleep(3);
+//
+//		
+//
+//		
+//		
+//		
+//		//saving password
+//		webDriver.findElement(By.cssSelector("table  tbody  tr:nth-child(3) td:nth-child(2) p input")).click();
+//		
+//		TimeUnit.SECONDS.sleep(3);
+//
+//
+//
+//		
+//		
+//		
+//		//clicking login
+//
+//		webDriver.findElement(By.cssSelector("div table  tbody  tr  td:nth-child(2)  p  small a:nth-child(7)")).click();
+//		
+//		TimeUnit.SECONDS.sleep(3);	
+//
+//		
+//
+//		
+//		
+//		// Username		
+//		webDriver.findElement(By.cssSelector("table  tbody  tr  td:nth-child(1)  table  tbody  tr:nth-child(1)  td:nth-child(2)  p  input")).sendKeys("testuser");
+//
+//		TimeUnit.SECONDS.sleep(3);
+//		
+//		
+//
+//		
+//		
+//		// User password
+//		webDriver.findElement(By.cssSelector("table  tbody tr:nth-child(2)  td:nth-child(2)  p  input")).sendKeys("testpass");
+//
+//		TimeUnit.SECONDS.sleep(3);
+//		
+//
+//		
+//		//saving password
+//		webDriver.findElement(By.cssSelector("td.auto-style1  form  div  center  table tbody  tr  td:nth-child(1)  table  tbody  tr:nth-child(3)  td:nth-child(2)  p  input")).click();
+//		
+//		TimeUnit.SECONDS.sleep(3);
+		
 
 	}
 
