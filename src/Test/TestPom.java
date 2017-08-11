@@ -32,7 +32,6 @@ import java.io.IOException;
 
 
 
-
 public class TestPom {
 
 	private WebDriver webDriver;
@@ -45,13 +44,13 @@ public class TestPom {
 	private ExtentReports report;
     private ExtentTest test;
     private String reportFilePath = "test.html";
-	
+    	
     @BeforeClass
     public static void init(){
 
     }
-   
-    
+
+  
 	
 	@Before
 	public void before() {
@@ -82,26 +81,35 @@ public class TestPom {
 	
 	 public void spreadSheet(){
  
+		String testcondition;
+		String testUserName;
+		String testUserPassword;
+		
 
 		SpreadSheetReader sheetReader = new SpreadSheetReader(System.getProperty("user.dir") + "/Example_Spreadsheet.xlsx");
         List<String> row = sheetReader.readRow(1, "Input Data");
 
-        
+            
+               
+                
         for(String cell : row){
             System.out.println(cell);
         }
 	}
 	
-		
-	
 	
 	public void Test() throws InterruptedException{
 
+		
+		
 	webDriver.navigate().to("http://TheDemoSite.co.uk");
 		
 	webDriver.manage().window().maximize();	
 	
 	webDriver.findElement(By.cssSelector("body small a:nth-child(6)")).click();
+	
+	
+	// Start of loop which accepts a row from the worksheet
 	
 
 	RegPage.usernameInput("TestUser");
@@ -130,6 +138,9 @@ public class TestPom {
 	LoginPage.usernameInput("TestUser");
 	
 	LoginPage.passWordInput("TestPass");
+	
+	
+	// end of loop to test using th
 
 	try {
 		test.log(Status.INFO,"Info level"+test.addScreenCaptureFromPath(ScreenShot.take(webDriver, "gnsg")));
